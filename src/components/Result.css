@@ -1,0 +1,21 @@
+.wrapper {
+  /* display: flex;
+    flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  /* background-color: #258ea6; */
+}
+
+.alert {
+  height: 30vh;
+  width: 800px;
+  align-items: center;
+}
+
+.img {
+  display: flex;
+
+  flex-direction: column;
+  height: 50px;
+  width: 50px;
+}
