@@ -155,14 +155,7 @@ class Form1 extends Component {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.spouse}
-                    // className={
-                    //   touched.lastName && errors.lastName ? 'has-error' : null
-                    // }
                   />
-                  {/* <Error
-                    touched={touched.middleName}
-                    message={errors.middleName}
-                  /> */}
                 </div>
 
                 <div className="children">
@@ -198,7 +191,7 @@ class Form1 extends Component {
                   <Error touched={touched.address} message={errors.address} />
                 </div>
 
-                <div className="fg text-center"></div>
+                {/* <div className="fg text-center"></div> */}
 
                 <div className="createAccount">
                   <Button

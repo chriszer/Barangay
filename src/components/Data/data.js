@@ -41,5 +41,5 @@ export const data2 = [
 // Mark
 // Shane
 // Lee
-// 04-07-1992
+// 1994-04-07
 // Cupang Proper

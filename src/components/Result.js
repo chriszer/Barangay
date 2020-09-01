@@ -12,6 +12,7 @@ import { Card } from 'react-bootstrap'
 import { Table } from 'reactstrap'
 import './Result.css'
 import imgalert from '../images/alert.png'
+import services from '../images/Services.png'
 import Main from './Main.js'
 import question from '../images/question.png'
 import mismatch from '../images/alert.png'
@@ -47,7 +48,7 @@ function AlertDismissible(props) {
     latest_b4_result,
   } = props
 
-  const [count, setCount] = useState(0)
+  const [falsecount, setCount] = useState(0)
 
   // Filter for PSA
   let b1_false_count = 0
@@ -61,7 +62,7 @@ function AlertDismissible(props) {
     for (let b = 0; b < latest_b1_result.length; b++) {
       latest_b1_result[b] = <img src={question} width="40" height="40" />
     }
-    setCount(count + b1_false_count)
+    setCount(falsecount + b1_false_count)
   } else {
     for (let b = 0; b < latest_b1_result.length; b++) {
       if (latest_b1_result[b] === true)
@@ -160,95 +161,77 @@ function AlertDismissible(props) {
         </Badge>
       </div>
       <div class="row d-flex justify-content-center">
-        <ModalDialog bg="dark">
-          <Modal.Body>
-            <Modal.Title>
-              <h3>
-                {' '}
-                {count === 6
-                  ? 'No record found in any of the barangay'
-                  : latest_b1[5]}
-              </h3>
-            </Modal.Title>
-            <Flash>
-              {/* <ProgressBar animated now={99} variant="success"/> */}
-              {/* {count === 6 ? 'No' : latest_b1_result[0]} */}
-              <Table>
-                <tbody>
-                  <tr>
-                    <td>{latest_b1_result[0]}</td>
-                    <td>
-                      <h6>First Name</h6>
-                    </td>
-                    <td>{latest_b1_result[2]}</td>
-                    <td>
-                      <h6>Last Name</h6>
-                    </td>
-                    <td>{latest_b1_result[1]}</td>
-                    <td>
-                      <h6>Middle Name</h6>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>{latest_b1_result[3]}</td>
-                    <td>
-                      <h6>Date of Birth</h6>
-                    </td>
-                    <td>{latest_b1_result[4]}</td>
-                    <td>
-                      <h6>No of Children</h6>
-                    </td>
-                    <td>{latest_b1_result[5]}</td>
-                    <td>
-                      <h6>Address</h6>
-                    </td>
-                  </tr>
-                </tbody>
-              </Table>
-            </Flash>
-          </Modal.Body>
-        </ModalDialog>
-
-        {latest_b4_result[6] === 'hit' ? (
+        <div class="col-md-12">
           <ModalDialog bg="dark">
             <Modal.Body>
-              {b4_user_status}
               <Modal.Title>
-                <h3>Cataning, Balanga</h3>
+                <h3>
+                  {' '}
+                  {falsecount === 6
+                    ? 'No record found in any of the barangay'
+                    : latest_b1[5]}
+                </h3>
               </Modal.Title>
               <Flash>
                 {/* <ProgressBar animated now={99} variant="success"/> */}
-
+                {/* {count === 6 ? 'No' : latest_b1_result[0]} */}
                 <Table>
                   <tbody>
                     <tr>
-                      <td>{latest_b4_result[0]}</td>
+                      <td>{latest_b1_result[0]}</td>
                       <td>
                         <h6>First Name</h6>
                       </td>
-                      <td>{latest_b4_result[2]}</td>
+                      <td>{latest_b1_result[2]}</td>
                       <td>
                         <h6>Last Name</h6>
                       </td>
-                      <td>{latest_b4_result[1]}</td>
+                      <td>{latest_b1_result[1]}</td>
                       <td>
                         <h6>Middle Name</h6>
                       </td>
                     </tr>
                     <tr>
-                      <td>{latest_b4_result[3]}</td>
+                      <td>{latest_b1_result[3]}</td>
                       <td>
                         <h6>Date of Birth</h6>
                       </td>
-                      <td>{latest_b4_result[4]}</td>
+                      <td>{latest_b1_result[4]}</td>
                       <td>
-                        <h6>No. of Children</h6>
+                        <h6>No of Children</h6>
                       </td>
-                      <td>{latest_b4_result[5]}</td>
+                      <td>{latest_b1_result[5]}</td>
                       <td>
                         <h6>Address</h6>
                       </td>
                     </tr>
+                  </tbody>
+                </Table>
+              </Flash>
+            </Modal.Body>
+          </ModalDialog>
+        </div>
+
+        {latest_b4_result[6] === 'hit' || falsecount === 6 ? null : (
+          <div class="col-md-12">
+            <img src={services} width="400px" />
+          </div>
+        )}
+
+        {latest_b4_result[6] === 'hit' ? (
+          <ModalDialog bg="dark">
+            <Modal.Body>
+              <Modal.Title>
+                <h3>Cataning, Balanga</h3>
+              </Modal.Title>
+              {b4_user_status}
+
+              <Flash>
+                {/* <ProgressBar animated now={99} variant="success"/> */}
+
+                <Table>
+                  <tbody>
+                    <tr></tr>
                   </tbody>
                 </Table>
               </Flash>

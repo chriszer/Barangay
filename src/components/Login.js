@@ -30,7 +30,11 @@ function Log(props) {
     <div class="form-group">
       <div className="Login">
         <form onSubmit={handleSubmit}>
-          <img style={{ width: '170px' }} src={logo} className="login-img" />
+          <img
+            style={{ width: '170px', height: '150px' }}
+            src={logo}
+            className="login-img"
+          />
 
           <FormGroup controlId="email" bsSize="large">
             <FormLabel>
